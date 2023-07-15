@@ -1,0 +1,29 @@
+{
+  "name": "miot-pc-switch-bemfa",
+  "version": "0.1.0",
+  "description": "MIOT通过巴法云(bemfa)控制电脑开关机",
+  "scripts": {
+    "serve": "ts-node ./src/index.ts",
+    "build": "tsc && copy .\\package.json .\\dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "miot",
+    "bemfa",
+    "iot",
+    "on/off pc",
+    "wol",
+    "ssh"
+  ],
+  "author": "Humility",
+  "license": "MIT",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "mqtt": "^4.3.7",
+    "ssh2": "^1.14.0",
+    "wake_on_lan": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.1"
+  }
+}
