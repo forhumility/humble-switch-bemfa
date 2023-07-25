@@ -2,8 +2,8 @@ import { IStatusObserver } from "./../lib/bemfa";
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 11:11:43
- * @LastEditTime : 2023-07-14 12:06:10
- * @LastEditors  : Humility
+ * @LastEditTime : 2023-07-25 09:57:25
+ * @LastEditors  : LST-Public
  * @FilePath     : \miot-pc-switch-bemfa\src\utils\bemfa-mqtt.ts
  * @Description  :
  */
@@ -36,7 +36,6 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
       connectTimeout: 10 * 1000, // 收到CONNACK之前等待的时间
     };
     this.computerInfos = devInfos;
-    this.init();
   }
   init() {
     // 连接mqtt服务
@@ -79,6 +78,12 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
     this.mqttClient.on("close", () => this.emit("close"));
     this.mqttClient.on("end", () => this.emit("end"));
   }
+  /**
+   * @param {DeviceStatus} status 设备状态
+   * @param {Computer} dev 设备实例
+   * @return {*}
+   * @description: 监听设备状态改变 更新云端状态
+   */
   statusChanged(status: DeviceStatus, dev: Computer) {
     const { theme, name } = dev;
     // 更新云端设备当前状态
@@ -86,5 +91,17 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
     const upTopic = `${theme}/set`;
     console.log(name, currStatus);
     this.mqttClient.publish(upTopic, currStatus);
+  }
+  /**
+   * @param {*} minute 轮询时间
+   * @return {*}
+   * @description: 电脑状态轮询(默认10分钟更新一次设备状态)
+   */
+  computerStatusPolling(minute = 10) {
+    setInterval(() => {
+      this.computerList.forEach((cmp) => {
+        cmp.updateStatus();
+      });
+    }, minute * 60 * 1000);
   }
 }

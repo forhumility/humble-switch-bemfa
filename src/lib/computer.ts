@@ -23,6 +23,7 @@ export class Computer extends BemfaDevice {
   password: string;
   timeout?: 30;
   countdown?: 20;
+  /** 步进时间 */
   private step: 500;
   constructor(cxt) {
     super(cxt);
@@ -40,6 +41,7 @@ export class Computer extends BemfaDevice {
     this.password = password;
     this.status = this.getStatus();
   }
+  /** 打开设备 */
   async turnOn() {
     if (this.status == DeviceStatus.on) {
       console.log(`【${this.name}】已经开啦。`);
@@ -51,6 +53,7 @@ export class Computer extends BemfaDevice {
       });
     }
   }
+  /** 关闭设备 */
   async turnOff() {
     if (this.status == DeviceStatus.on) {
       const turnOffCMD = `shutdown -s -f -c 将在${this.countdown}秒内关闭这个电脑 -t ${this.countdown}`;
@@ -96,6 +99,10 @@ export class Computer extends BemfaDevice {
       this.status = 0;
     }
   }
+  /**
+   * @return {*}
+   * @description: 获取设备状态
+   */
   getStatus(): DeviceStatus {
     const pingCMD = `ping -n 1 -w 1 ${this.ip}`;
     try {
@@ -105,6 +112,15 @@ export class Computer extends BemfaDevice {
       return 0;
     }
   }
+  /** 更新设备状态 */
+  updateStatus() {
+    this.status = this.getStatus();
+  }
+  /**
+   * @param {number} mills 休眠时间(毫秒)
+   * @return {*}
+   * @description: 线程休眠一段时间
+   */
   private sleep(mills: number) {
     return new Promise((resolve) => setTimeout(resolve, mills));
   }

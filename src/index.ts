@@ -14,5 +14,4 @@ import { bemfaConf } from "./config/conf.bemfa";
 /** mqtt连接 */
 
 const bemfaMqtt = new BemfaMqtt(bemfaConf, computerList);
-bemfaMqtt.on("subscribed", (topic) => console.log("subscribed", topic));
-bemfaMqtt.on("message", (topic, msg) => console.log(topic, msg));
+bemfaMqtt.init();

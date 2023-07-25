@@ -4,7 +4,7 @@
   "description": "MIOT通过巴法云(bemfa)控制电脑开关机",
   "scripts": {
     "serve": "ts-node ./src/index.ts",
-    "build": "tsc && copy .\\package.json .\\dist",
+    "build": "tsc && copy .\\package.json .\\dist\\",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
