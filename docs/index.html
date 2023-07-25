@@ -1,0 +1,97 @@
+<!--
+ * @Author       : LST-Public
+ * @Date         : 2023-07-25 14:24:22
+ * @LastEditTime : 2023-07-25 14:33:48
+ * @LastEditors  : LST-Public
+ * @FilePath     : \miot-pc-switch-bemfa\docs\index.html
+ * @Description  : 文档
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"
+    />
+    <style>
+      .profile {
+        width: 160px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        name: "miot-pc-switch-bemfa",
+        repo: "https://github.com/forhumility/miot-pc-switch-bemfa",
+        coverpage: ["/", "/en-us/"],
+        loadSidebar: true,
+        loadNavbar: true,
+        subMaxLevel: 3,
+        search: {
+          placeholder: {
+            "/en-us/": "Type to search",
+            "/": "搜索",
+          },
+          noData: {
+            "/en-us/": "No Results",
+            "/": "找不到结果",
+          },
+          depth: 6,
+          pathNamespaces: ["/en-us"],
+        },
+        copyCode: {
+          buttonText: {
+            "/en-us/": "Copy to clipboard",
+            "/": "点击复制",
+          },
+          errorText: {
+            "/en-us/": "Error",
+            "/": "错误",
+          },
+          successText: {
+            "/en-us/": "Copied",
+            "/": "复制",
+          },
+        },
+      };
+      console.log(
+        `%c miot-pc-switch-bemfa
+
+                  ██████╗  ██████╗  ██████╗███████╗    ██████╗ ██╗   ██╗
+                  ██╔══██╗██╔═══██╗██╔════╝██╔════╝    ██╔══██╗╚██╗ ██╔╝
+                  ██║  ██║██║   ██║██║     ███████╗    ██████╔╝ ╚████╔╝
+                  ██║  ██║██║   ██║██║     ╚════██║    ██╔══██╗  ╚██╔╝
+                  ██████╔╝╚██████╔╝╚██████╗███████║    ██████╔╝   ██║
+                  ╚═════╝  ╚═════╝  ╚═════╝╚══════╝    ╚═════╝    ╚═╝
+
+            ██╗  ██╗██╗   ██╗███╗   ███╗██╗██╗     ██╗████████╗██╗   ██╗
+            ██║  ██║██║   ██║████╗ ████║██║██║     ██║╚══██╔══╝╚██╗ ██╔╝
+            ███████║██║   ██║██╔████╔██║██║██║     ██║   ██║    ╚████╔╝
+            ██╔══██║██║   ██║██║╚██╔╝██║██║██║     ██║   ██║     ╚██╔╝
+            ██║  ██║╚██████╔╝██║ ╚═╝ ██║██║███████╗██║   ██║      ██║
+            ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝╚══════╝╚═╝   ╚═╝      ╚═╝
+        `,
+        "color: #ccf"
+      );
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- search -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- zoom image -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- copy code -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  </body>
+</html>
