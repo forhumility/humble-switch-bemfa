@@ -2,7 +2,7 @@ import { IStatusObserver } from "./../lib/bemfa";
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 11:11:43
- * @LastEditTime : 2023-07-25 09:57:25
+ * @LastEditTime : 2023-07-25 11:16:03
  * @LastEditors  : LST-Public
  * @FilePath     : \miot-pc-switch-bemfa\src\utils\bemfa-mqtt.ts
  * @Description  :
@@ -41,6 +41,7 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
     // 连接mqtt服务
     this.mqttClient = connect(this.url, this.options);
     this.mqttClient.on("connect", () => {
+      console.log(new Date(), `【${this.url}】连接成功。`);
       this.emit("connect");
       this.computerInfos.forEach((info) => {
         const { theme } = info;
@@ -62,6 +63,7 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
     });
     this.mqttClient.on("message", (topic, msg) => {
       const message = msg.toString("utf-8");
+      console.log(new Date(), `云端消息`, topic, message);
       this.emit("message", topic, message);
       const tagComputer = this.computerList.find((c) => c.theme == topic);
       if (!tagComputer) return;
@@ -89,7 +91,7 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
     // 更新云端设备当前状态
     const currStatus = DeviceStatus[status];
     const upTopic = `${theme}/set`;
-    console.log(name, currStatus);
+    console.log(new Date(), name, currStatus);
     this.mqttClient.publish(upTopic, currStatus);
   }
   /**
@@ -99,6 +101,7 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
    */
   computerStatusPolling(minute = 10) {
     setInterval(() => {
+      console.log(new Date(), `更新设备状态...`);
       this.computerList.forEach((cmp) => {
         cmp.updateStatus();
       });
