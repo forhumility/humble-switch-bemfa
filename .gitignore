@@ -4,5 +4,7 @@ config.ts
 .*.json
 
 dist
+src/config/conf.bemfa.ts
+src/config/conf.computer.ts
 
 package-lock.json
