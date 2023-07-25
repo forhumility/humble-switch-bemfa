@@ -3,7 +3,7 @@
  * @Date         : 2023-07-12 15:31:14
  * @LastEditTime : 2023-07-12 15:35:45
  * @LastEditors  : Humility
- * @FilePath     : \miot-pc-switch-bemfa\src\config\bemfa.ts
+ * @FilePath     : \humble-switch-bemfa\src\config\bemfa.ts
  * @Description  :
  */
 

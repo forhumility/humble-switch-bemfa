@@ -3,7 +3,7 @@
  * @Date         : 2023-07-12 14:04:18
  * @LastEditTime : 2023-07-25 11:23:00
  * @LastEditors  : LST-Public
- * @FilePath     : \miot-pc-switch-bemfa\src\index.ts
+ * @FilePath     : \humble-switch-bemfa\src\index.ts
  * @Description  :
  */
 import { BemfaMqtt } from "./utils/bemfa-mqtt";

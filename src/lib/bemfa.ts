@@ -3,7 +3,7 @@
  * @Date         : 2023-07-13 09:41:45
  * @LastEditTime : 2023-07-25 10:53:57
  * @LastEditors  : LST-Public
- * @FilePath     : \miot-pc-switch-bemfa\src\lib\bemfa.ts
+ * @FilePath     : \humble-switch-bemfa\src\lib\bemfa.ts
  * @Description  :
  */
 export interface BemfaInfo {

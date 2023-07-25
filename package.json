@@ -1,7 +1,7 @@
 {
-  "name": "miot-pc-switch-bemfa",
+  "name": "humble-switch-bemfa",
   "version": "0.1.0",
-  "description": "MIOT通过巴法云(bemfa)控制电脑开关机",
+  "description": "小爱同学(miot)通过巴法云(bemfa)控制电脑开关机",
   "scripts": {
     "pre": "npm i && copy .\\src\\config\\conf.bemfa.example.ts .\\src\\config\\conf.bemfa.ts && copy .\\src\\config\\conf.computer.example.ts .\\src\\config\\conf.computer.ts",
     "serve": "ts-node ./src/index.ts",
@@ -12,6 +12,7 @@
   "keywords": [
     "miot",
     "bemfa",
+    "小爱同学",
     "iot",
     "on/off pc",
     "wol",

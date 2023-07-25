@@ -3,7 +3,7 @@
  * @Date         : 2023-07-13 10:28:04
  * @LastEditTime : 2023-07-14 15:15:51
  * @LastEditors  : Humility
- * @FilePath     : \miot-pc-switch-bemfa\src\lib\computer.ts
+ * @FilePath     : \humble-switch-bemfa\src\lib\computer.ts
  * @Description  :
  */
 // 子进程

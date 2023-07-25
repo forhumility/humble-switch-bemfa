@@ -3,7 +3,7 @@
  * @Date         : 2023-07-13 16:33:00
  * @LastEditTime : 2023-07-13 16:37:11
  * @LastEditors  : Humility
- * @FilePath     : \miot-pc-switch-bemfa\src\utils\bemfa-tcp.ts
+ * @FilePath     : \humble-switch-bemfa\src\utils\bemfa-tcp.ts
  * @Description  :
  */
 import { Socket } from "net";

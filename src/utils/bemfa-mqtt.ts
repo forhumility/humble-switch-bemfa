@@ -4,7 +4,7 @@ import { IStatusObserver } from "./../lib/bemfa";
  * @Date         : 2023-07-13 11:11:43
  * @LastEditTime : 2023-07-25 11:16:03
  * @LastEditors  : LST-Public
- * @FilePath     : \miot-pc-switch-bemfa\src\utils\bemfa-mqtt.ts
+ * @FilePath     : \humble-switch-bemfa\src\utils\bemfa-mqtt.ts
  * @Description  :
  */
 import events from "events";
