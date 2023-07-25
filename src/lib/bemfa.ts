@@ -1,8 +1,8 @@
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 09:41:45
- * @LastEditTime : 2023-07-14 11:39:10
- * @LastEditors  : Humility
+ * @LastEditTime : 2023-07-25 10:53:57
+ * @LastEditors  : LST-Public
  * @FilePath     : \miot-pc-switch-bemfa\src\lib\bemfa.ts
  * @Description  :
  */
@@ -28,10 +28,10 @@ export abstract class BemfaDevice {
   statusObs: Array<IStatusObserver> = new Array<IStatusObserver>(); // 状态的监听者们
   private _status?: DeviceStatus;
   get status(): DeviceStatus | undefined {
-    return this._status || DeviceStatus.unknown;
+    return this._status == undefined ? DeviceStatus.unknown : this._status;
   }
   set status(value: DeviceStatus | undefined) {
-    this._status = value || DeviceStatus.unknown;
+    this._status = value == undefined ? DeviceStatus.unknown : value;
     for (let ob of this.statusObs) {
       ob.statusChanged(this._status, this);
     }
