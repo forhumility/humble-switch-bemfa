@@ -1,6 +1,6 @@
 {
   "name": "humble-switch-bemfa",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "小爱同学(miot)通过巴法云(bemfa)控制电脑开关机",
   "scripts": {
     "pre": "npm i && copy .\\src\\config\\conf.bemfa.example.ts .\\src\\config\\conf.bemfa.ts && copy .\\src\\config\\conf.computer.example.ts .\\src\\config\\conf.computer.ts",
