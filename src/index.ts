@@ -1,8 +1,8 @@
 /**
  * @Author       : Humility
  * @Date         : 2023-07-12 14:04:18
- * @LastEditTime : 2023-07-14 11:42:56
- * @LastEditors  : Humility
+ * @LastEditTime : 2023-07-25 11:23:00
+ * @LastEditors  : LST-Public
  * @FilePath     : \miot-pc-switch-bemfa\src\index.ts
  * @Description  :
  */
@@ -15,3 +15,4 @@ import { bemfaConf } from "./config/conf.bemfa";
 
 const bemfaMqtt = new BemfaMqtt(bemfaConf, computerList);
 bemfaMqtt.init();
+bemfaMqtt.computerStatusPolling();
