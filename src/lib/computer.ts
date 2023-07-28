@@ -1,9 +1,9 @@
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 10:28:04
- * @LastEditTime : 2023-07-14 15:15:51
- * @LastEditors  : Humility
- * @FilePath     : \humble-switch-bemfa\src\lib\computer.ts
+ * @LastEditTime : 2023-07-28 16:29:08
+ * @LastEditors  : LST-Public
+ * @FilePath     : \miot-pc-switch-bemfa\src\lib\computer.ts
  * @Description  :
  */
 // 子进程
@@ -40,6 +40,7 @@ export class Computer extends BemfaDevice {
     this.user = user;
     this.password = password;
     this.status = this.getStatus();
+    console.log(new Date(), "platform", process.platform);
   }
   /** 打开设备 */
   async turnOn() {
@@ -104,7 +105,14 @@ export class Computer extends BemfaDevice {
    * @description: 获取设备状态
    */
   getStatus(): DeviceStatus {
-    const pingCMD = `ping -n 1 -w 1 ${this.ip}`;
+    let pingCMD = `ping -n 1 -w 1 ${this.ip}`;
+    if (process.platform == "win32") {
+      pingCMD = `ping -n 1 -w 1 ${this.ip}`;
+    } else if (process.platform == "linux") {
+      pingCMD = `ping -c 1 -w 1 ${this.ip}`;
+    } else {
+      console.log(new Date(), "platform error");
+    }
     try {
       execSync(pingCMD);
       return 1;
