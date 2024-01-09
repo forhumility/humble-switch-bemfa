@@ -27,6 +27,7 @@
     "wake_on_lan": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.1"
+    "@types/node": "^20.4.1",
+    "ts-node": "^10.9.2"
   }
 }
