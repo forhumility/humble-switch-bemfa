@@ -2,8 +2,8 @@ import { IStatusObserver } from "./../lib/bemfa";
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 11:11:43
- * @LastEditTime : 2023-07-25 11:16:03
- * @LastEditors  : LST-Public
+ * @LastEditTime : 2024-01-11 16:57:43
+ * @LastEditors  : Humility
  * @FilePath     : \humble-switch-bemfa\src\utils\bemfa-mqtt.ts
  * @Description  :
  */
@@ -20,6 +20,7 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
   options: IClientOptions;
   computerInfos: Array<ComputerInfo> = new Array<ComputerInfo>();
   computerList: Array<Computer> = new Array<Computer>();
+  pollingInterval: NodeJS.Timer;
 
   constructor(bemfaConf: BemfaInfo, devInfos: Array<ComputerInfo>) {
     super();
@@ -100,8 +101,8 @@ export class BemfaMqtt extends events.EventEmitter implements IStatusObserver {
    * @description: 电脑状态轮询(默认10分钟更新一次设备状态)
    */
   computerStatusPolling(minute = 10) {
-    setInterval(() => {
-      console.log(new Date(), `更新设备状态...`);
+    this.pollingInterval = setInterval(() => {
+      // console.log(new Date(), `更新设备状态...`);
       this.computerList.forEach((cmp) => {
         cmp.updateStatus();
       });
