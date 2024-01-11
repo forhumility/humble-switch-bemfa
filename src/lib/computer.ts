@@ -1,9 +1,9 @@
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 10:28:04
- * @LastEditTime : 2023-07-28 16:29:08
- * @LastEditors  : LST-Public
- * @FilePath     : \miot-pc-switch-bemfa\src\lib\computer.ts
+ * @LastEditTime : 2024-01-11 16:07:27
+ * @LastEditors  : Humility
+ * @FilePath     : \humble-switch-bemfa\src\lib\computer.ts
  * @Description  :
  */
 // 子进程
@@ -111,12 +111,14 @@ export class Computer extends BemfaDevice {
     } else if (process.platform == "linux") {
       pingCMD = `ping -c 1 -w 1 ${this.ip}`;
     } else {
-      console.log(new Date(), "platform error");
+      console.log(new Date(), "platform not supported");
     }
     try {
       execSync(pingCMD);
       return 1;
     } catch (error) {
+      console.log(new Date(), "get status error");
+      console.warn(error);
       return 0;
     }
   }
