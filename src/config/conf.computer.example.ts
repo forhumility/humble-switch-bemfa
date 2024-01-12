@@ -14,6 +14,8 @@ export interface ComputerInfo {
   mac: string;
   user: string;
   password: string;
+  timeout?: number;// 指令超时时间
+  countdown?: number;// 多久后关机
 }
 export const computerList: Array<ComputerInfo> = [
   {

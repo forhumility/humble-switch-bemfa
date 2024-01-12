@@ -1,7 +1,7 @@
 /**
  * @Author       : Humility
  * @Date         : 2023-07-13 10:28:04
- * @LastEditTime : 2024-01-11 16:07:27
+ * @LastEditTime : 2024-01-12 15:16:24
  * @LastEditors  : Humility
  * @FilePath     : \humble-switch-bemfa\src\lib\computer.ts
  * @Description  :
@@ -21,10 +21,10 @@ export class Computer extends BemfaDevice {
   mac: string;
   user: string;
   password: string;
-  timeout?: 30;
-  countdown?: 20;
+  timeout: number;
+  countdown: number;
   /** 步进时间 */
-  private step: 500;
+  private step = 500;
   constructor(cxt) {
     super(cxt);
   }
@@ -33,12 +33,14 @@ export class Computer extends BemfaDevice {
    * @param info 电脑信息
    */
   init(info: ComputerInfo) {
-    const { name, ip, mac, user, password } = info;
+    const { name, ip, mac, user, password, timeout, countdown } = info;
     this.name = name || "设备";
     this.ip = ip;
     this.mac = mac;
     this.user = user;
     this.password = password;
+    this.timeout = timeout || 30;
+    this.countdown = countdown || 20;
     this.status = this.getStatus();
     console.log(new Date(), "platform", process.platform);
   }
@@ -57,7 +59,7 @@ export class Computer extends BemfaDevice {
   /** 关闭设备 */
   async turnOff() {
     if (this.status == DeviceStatus.on) {
-      const turnOffCMD = `shutdown -s -f -c 将在${this.countdown}秒内关闭这个电脑 -t ${this.countdown}`;
+      const turnOffCMD = `shutdown /s /f /c "将在${this.countdown}秒内关闭这个电脑" /t ${this.countdown}`;
       const sshClient = new Client();
       sshClient
         .on("ready", () => {
@@ -72,6 +74,7 @@ export class Computer extends BemfaDevice {
                 sshClient.end();
               })
               .on("data", (data) => {
+                // 编码格式和目标设备的编码格式有关，中文系统一般为gbk，但nodejs不支持。
                 console.log("stream data", data.toString("utf-8"));
               });
           });
